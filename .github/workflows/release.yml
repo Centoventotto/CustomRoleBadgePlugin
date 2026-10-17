@@ -1,0 +1,33 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag (e.g. v1.0.0)"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Zip plugin folder
+        run: zip -r customRoleBadge.zip customRoleBadge
+
+      - name: Create release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ inputs.tag || github.ref_name }}
+        run: |
+          gh release create "$TAG" customRoleBadge.zip \
+            --target "$GITHUB_SHA" \
+            --title "CustomRoleBadge $TAG" \
+            --notes "Extract \`customRoleBadge.zip\` into \`Equicord/src/userplugins/\`, then run \`pnpm build\` and \`pnpm inject\`. See the README for details."

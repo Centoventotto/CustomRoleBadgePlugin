@@ -1,0 +1,59 @@
+.vc-crb-editor {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.vc-crb-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.vc-crb-fields {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.vc-crb-input {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.vc-crb-input:nth-child(3) {
+    flex-grow: 2;
+}
+
+.vc-crb-input-error input {
+    border-color: var(--text-feedback-critical, var(--status-danger)) !important;
+}
+
+.vc-crb-preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+}
+
+.vc-crb-preview img {
+    max-width: 24px;
+    max-height: 24px;
+    object-fit: contain;
+}
+
+.vc-crb-hint {
+    color: var(--text-muted);
+}
+
+.vc-crb-error {
+    color: var(--text-feedback-critical, var(--status-danger));
+}
+
+.vc-crb-chat {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: top;
+}
