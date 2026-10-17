@@ -56,3 +56,7 @@ To copy IDs you need to enable *Developer Mode* in Discord (Settings → Advance
 ## Author
 
 centoventotto (Discord ID `838808975558311948`)
+
+## License
+
+Released under the [GNU General Public License v3.0](LICENSE), like Equicord itself.
